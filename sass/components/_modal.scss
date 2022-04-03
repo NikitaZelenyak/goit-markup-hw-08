@@ -1,0 +1,217 @@
+/* модалка */
+
+.backdrop {
+  z-index: 6;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+
+  width: 100%;
+  height: 100%;
+
+  @include transition(opacity);
+  @include transition(transform);
+  @include transition(visibility);
+
+  background: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+
+  &.is-hidden {
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+.modal {
+  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  min-width: 450px;
+  height: 609px;
+  padding: 40px;
+
+  transform: translate(-50%, -50%) scale(1);
+
+  background: $modal-bcg;
+  @include transition(transform);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  &__title {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+    color: $title-color;
+  }
+
+  .backdrop.is-hidden & {
+    transform: translate(-50%, -50%) scale(0.9);
+    @include transition(transform);
+  }
+}
+.button-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: $modal-bcg;
+
+  cursor: pointer;
+}
+
+.button-close__icon {
+  @include transition(fill);
+
+  .button-close:focus &,
+  .button-close:hover & {
+    fill: $accent-color;
+    @include transition(fill);
+  }
+}
+
+.form {
+  &__wrap {
+    position: relative;
+  }
+  &__label {
+    margin-bottom: 4px;
+
+    display: block;
+
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+
+    color: $general-text-color;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 11px;
+    left: 12px;
+
+    width: 18px;
+    height: 18px;
+
+    @include transition(fill);
+  }
+}
+
+.form__input {
+  margin-bottom: 10px;
+  padding-left: 42px;
+
+  display: block;
+  width: 100%;
+  height: 40px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  @include transition(border-color);
+
+  &:focus + .form__icon {
+    fill: $accent-color;
+    @include transition(fill);
+  }
+  &:focus {
+    outline: none;
+    border-color: $accent-color;
+    @include transition(border-color);
+  }
+}
+
+.textarea {
+  margin-bottom: 20px;
+
+  width: 100%;
+  height: 120px;
+  padding: 12px 16px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  resize: none;
+
+  @include transition(border-color);
+  &:focus {
+    outline: none;
+    border-color: $accent-color;
+    @include transition(border-color);
+  }
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+
+    color: rgba(117, 117, 117, 0.5);
+  }
+}
+.checkbox {
+  appearance: none;
+
+  &__label {
+    display: flex;
+    display: inline-block;
+    margin-bottom: 30px;
+
+    font-size: 12px;
+    line-height: 1.16;
+
+    color: $general-text-color;
+  }
+
+  &__icon {
+    display: inline-block;
+
+    width: 16px;
+    height: 15px;
+
+    border: 2px solid $checkbox-border;
+    border-radius: 2px;
+  }
+
+  &__link {
+    color: $accent-color;
+  }
+
+  &:checked + .checkbox__icon {
+    background-image: url(../image/icon-check.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    border-color: $accent-color;
+
+    background-color: $accent-color;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .modal {
+    width: 528px;
+    height: 581px;
+    &__title {
+      line-height: 1.15;
+    }
+  }
+  .checkbox__label {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}

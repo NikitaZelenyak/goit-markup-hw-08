@@ -1,0 +1,27 @@
+.logo {
+  font-family: $secondary-font;
+
+  @include text(700, 26px, 1.2);
+
+  @include transition(color);
+  color: $secondary-title-color;
+  text-decoration: none;
+
+  &--white {
+    color: $title-color;
+  }
+
+  &__text-accent {
+    color: $logo-accent-color;
+  }
+
+  &:hover,
+  &:focus {
+    @include transition(color);
+    color: $accent-color;
+  }
+
+  &--color {
+    color: $accent-color-logo-footer;
+  }
+}

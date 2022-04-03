@@ -1,0 +1,139 @@
+.portfolio {
+  &__img {
+    max-width: 100%;
+    display: block;
+  }
+
+  &__thumb {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__text--apear {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    padding: 63px 24px;
+
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+
+    color: $text-apear-color;
+  }
+
+  &__title {
+    @include text(700, 18px, 2);
+
+    letter-spacing: 0.06em;
+
+    color: $title-color;
+  }
+
+  &__text {
+    margin-top: 4px;
+
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  &__card-text {
+    padding: 20px 24px;
+
+    border-right: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    border-left: 1px solid #eeeeee;
+  }
+}
+
+.portfolio__item {
+  background: $card-bcg;
+
+  &:hover,
+  &:focus {
+    @include transition(color);
+    @include transition(box-shadow);
+
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+}
+
+.portfolio__wrap {
+  position: absolute;
+  transform: translateY(100%);
+  top: 0;
+  left: 0px;
+
+  content: "";
+  width: 100%;
+  height: 100%;
+
+  background: $apear-card-bcg;
+  @include transition(transform);
+
+  .portfolio__link:hover &,
+  .portfolio__link:focus & {
+    transform: translateY(0);
+
+    @include transition(transform);
+  }
+}
+
+.portfolio__link {
+  text-decoration: none;
+  color: $general-text-color;
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio {
+    &__item:first-child {
+      margin-top: 40px;
+    }
+    &__item:not(:first-child) {
+      margin-top: 30px;
+    }
+  }
+}
+
+@media screen and (min-width: $laptop) {
+  .portfolio {
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+
+      margin: -15px;
+    }
+    &__link {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    &__card-text {
+      flex-grow: 1;
+    }
+  }
+
+  .portfolio__item {
+    margin: 15px;
+    width: calc((100% - 4 * 15px) / 2);
+  }
+  .portfolio__img {
+    width: 354px;
+    height: 294px;
+  }
+}
+
+@media screen and (min-width: $desctop) {
+  .portfolio__item {
+    margin: 15px;
+    width: calc((100% - 6 * 15px) / 3);
+  }
+  .portfolio__img {
+    width: 370px;
+    height: 294px;
+  }
+}

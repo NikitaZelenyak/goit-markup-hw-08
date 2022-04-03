@@ -1,0 +1,113 @@
+.team {
+  background-color: $secondaru-color-bcg;
+
+  &__wrap {
+    padding: 30px 0;
+  }
+
+  &__title {
+    @include text(700, 36px, 1.2);
+
+    text-align: center;
+
+    color: $title-color;
+  }
+
+  &__title-name {
+    @include text(500, 16px, 1.2);
+
+    text-align: center;
+
+    color: $title-color;
+  }
+
+  &__text {
+    margin-top: 10px;
+
+    font-size: 16px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  &__contacts-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+}
+
+.team__item {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+  background-color: $team-card-bcg;
+}
+
+.team__contacts-item:not(first-child) {
+  margin-left: 10px;
+}
+
+.team__contacts-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  @include transition(background-color);
+  &:hover,
+  &:focus {
+    @include transition(background-color);
+    background-color: $accent-color;
+  }
+}
+
+.team__contacts-icon {
+  fill: $svg-general-color;
+  @include transition(fill);
+
+  .team__contacts-link:hover &,
+  .team__contacts-link:focus & {
+    @include transition(fill);
+    fill: $svg-accent-color-white;
+  }
+}
+@media screen and (max-width: 767px) {
+  .team {
+    &__item {
+      display: block;
+      margin-top: 30px;
+      max-width: 450px;
+    }
+  }
+}
+
+@media screen and (min-width: $laptop) {
+  .team {
+    &__list {
+      display: flex;
+      margin: -15px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    &__item {
+      margin: 15px;
+      width: calc((100% - 2 * 30px) / 2);
+    }
+  }
+}
+
+@media screen and (min-width: $desctop) {
+  .team {
+    &__list {
+      flex-wrap: nowrap;
+    }
+
+    &__item {
+      width: 270px;
+    }
+  }
+}

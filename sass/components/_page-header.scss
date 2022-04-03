@@ -1,0 +1,258 @@
+.page-header {
+  border-bottom: 1px solid #ececec;
+}
+.page-header__link {
+  position: relative;
+
+  display: inline-block;
+  padding: 32px 0px;
+
+  @include text(500, 14px, 1.1);
+
+  letter-spacing: 0.02em;
+
+  color: $title-color;
+  text-decoration: none;
+  @include transition(color);
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    @include transition(color);
+  }
+}
+.page-header__link--current {
+  color: $accent-color;
+}
+
+.auth-nav__link {
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+
+  color: $general-text-color;
+  text-decoration: none;
+
+  @include transition(color);
+
+  &:focus,
+  &:hover {
+    color: $accent-color;
+    @include transition(color);
+  }
+
+  &:focus .auth-nav__icon,
+  &:hover .auth-nav__icon {
+    fill: $accent-color;
+    @include transition(fill);
+  }
+}
+
+.auth-nav__icon {
+  @include transition(fill);
+  fill: $general-text-color;
+}
+
+@media screen and (max-width: 767px) {
+  .page-header {
+    position: relative;
+    height: 60px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    &__link {
+      font-size: 40px;
+      line-height: 1.17;
+
+      letter-spacing: 0.02em;
+    }
+
+    &__mobile-menu {
+      display: flex;
+      align-items: center;
+      position: relative;
+      max-width: 480px;
+    }
+  }
+  .mobile-menu__wrapper {
+    z-index: 4;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 48px 40px;
+    width: 100%;
+
+    background-color: white;
+    &.is-open {
+      display: block;
+    }
+  }
+  .mobile-menu__button {
+    z-index: 5;
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    display: block;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover .icon-cross,
+    &:focus .icon-cross,
+    &:hover .icon-menu,
+    &:focus .icon-menu {
+      fill: $accent-color;
+    }
+
+    .icon-cross,
+    .icon-menu {
+      @include transition(fill);
+    }
+    & .icon-cross {
+      display: none;
+    }
+  }
+
+  .mobile-menu__button.is-open .icon-cross {
+    display: block;
+    position: absolute;
+  }
+
+  .mobile-menu__button.is-open .icon-menu {
+    display: none;
+  }
+
+  .auth-nav {
+    margin-top: 306px;
+    display: flex;
+    flex-direction: column;
+
+    &__item:nth-child(2) {
+      order: -1;
+    }
+    &__item:not(:first-child) {
+      margin-bottom: 32px;
+    }
+    &__link {
+      font-size: 24px;
+      line-height: 1.16;
+      letter-spacing: 0.02em;
+
+      &--accent {
+        font-size: 34px;
+        color: $accent-color;
+      }
+    }
+    &__icon {
+      display: none;
+    }
+  }
+
+  .networks {
+    &__list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 64px;
+    }
+    &__item:not(:last-child) {
+      margin-right: 10px;
+      padding-right: 10px;
+      border-right: 1px solid rgba(33, 33, 33, 0.2);
+    }
+
+    &__link {
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      line-height: 1.22;
+      letter-spacing: 0.02em;
+
+      color: $accent-color;
+    }
+  }
+}
+
+@media screen and (min-width: $laptop) {
+  .page-header .container {
+    display: flex;
+    align-items: center;
+  }
+  .mobile-menu__wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .page-header__list {
+    display: flex;
+    align-items: center;
+    margin-left: 88px;
+  }
+
+  .page-header__link--current {
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      content: " ";
+      height: 4px;
+      width: 100%;
+      background-color: $accent-color;
+      border-radius: 2px;
+    }
+  }
+  .page-header__item:nth-child(n + 2) {
+    margin-left: 50px;
+  }
+
+  .auth-nav {
+    margin-left: 84px;
+
+    &__link {
+      font-size: 12px;
+      line-height: 1.16;
+
+      letter-spacing: 0.02em;
+      display: flex;
+    }
+    &__item + &__item {
+      margin-top: 10px;
+    }
+    &__icon {
+      margin-right: 8px;
+    }
+  }
+  .networks {
+    display: none;
+  }
+  .mobile-menu__button {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $desctop) {
+  .auth-nav {
+    display: flex;
+    align-items: center;
+    margin-left: 305px;
+
+    &__link {
+      font-size: 14px;
+      line-height: 1.14;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+
+      & + & {
+        margin-top: 0px;
+      }
+    }
+    &__item:nth-child(n + 2) {
+      margin-left: 30px;
+    }
+  }
+}
