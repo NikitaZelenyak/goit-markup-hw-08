@@ -15,6 +15,7 @@
 
   letter-spacing: 0.03em;
 
+  color: $title-color;
   background: $secondaru-color-bcg;
 
   @include transition(color);
@@ -65,7 +66,7 @@
 @media screen and (min-width: $desctop) {
   .portfolio-button {
     &__list {
-      margin-bottom: 35px;
+      margin-bottom: 50px;
     }
   }
 }

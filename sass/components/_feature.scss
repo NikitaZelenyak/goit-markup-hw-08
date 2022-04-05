@@ -19,7 +19,7 @@
 
   &__text {
     margin-top: 10px;
-    line-height: 1.7;
+    line-height: 1.69;
     font-size: 14px;
   }
 }
@@ -28,6 +28,9 @@
   .feature {
     &__item {
       margin-top: 30px;
+    }
+    &__title {
+      text-align: center;
     }
     &__wrap {
       max-width: 450px;

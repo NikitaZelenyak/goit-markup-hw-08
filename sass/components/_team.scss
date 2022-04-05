@@ -6,7 +6,7 @@
   }
 
   &__title {
-    @include text(700, 36px, 1.2);
+    @include text(700, 28px, 1.17);
 
     text-align: center;
 
@@ -91,7 +91,9 @@
       display: flex;
       margin: -15px;
       flex-wrap: wrap;
-      margin-top: 30px;
+    }
+    &__title {
+      margin-bottom: 30px;
     }
     &__item {
       margin: 15px;
@@ -104,6 +106,11 @@
   .team {
     &__list {
       flex-wrap: nowrap;
+    }
+
+    &__title {
+      @include text(700, 36px, 1.2);
+      margin-bottom: 50px;
     }
 
     &__item {

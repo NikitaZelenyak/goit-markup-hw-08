@@ -151,9 +151,14 @@
   .footer__wrapper {
     display: flex;
 
-    justify-content: space-between;
+    justify-content: space-around;
   }
-
+  .footer__link-box {
+    text-align: center;
+  }
+  .join-box {
+    text-align: center;
+  }
   .subscription {
     text-align: center;
     &__title {
@@ -176,9 +181,12 @@
       display: flex;
     }
   }
-
+  .footer__link-box {
+    text-align: left;
+  }
   .join-box {
     margin-left: 70px;
+    text-align: left;
   }
 
   .footer__item + .footer__item {
@@ -189,6 +197,7 @@
 
     &__title {
       margin-top: 0px;
+      text-align: left;
     }
   }
 
