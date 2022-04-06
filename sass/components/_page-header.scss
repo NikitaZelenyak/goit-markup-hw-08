@@ -82,10 +82,12 @@
   .mobile-menu__wrapper {
     display: none;
 
-    background-color: white;
     &.is-open {
       position: fixed;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
       left: 0;
       top: 0;
       padding: 48px 40px;
@@ -93,6 +95,7 @@
       height: 100%;
       z-index: 4;
       overflow-y: scroll;
+      background-color: white;
     }
   }
   .mobile-menu__button {
@@ -124,7 +127,7 @@
 
   .mobile-menu__button.is-open .icon-cross {
     display: block;
-    position: absolute;
+    position: fixed;
   }
 
   .mobile-menu__button.is-open .icon-menu {

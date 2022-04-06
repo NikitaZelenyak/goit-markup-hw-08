@@ -195,11 +195,19 @@ img {
   }
   .mobile-menu__wrapper {
     display: none;
-    background-color: white;
   }
   .mobile-menu__wrapper.is-open {
     position: fixed;
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     left: 0;
     top: 0;
     padding: 48px 40px;
@@ -207,6 +215,7 @@ img {
     height: 100%;
     z-index: 4;
     overflow-y: scroll;
+    background-color: white;
   }
   .mobile-menu__button {
     z-index: 5;
@@ -235,7 +244,7 @@ img {
   }
   .mobile-menu__button.is-open .icon-cross {
     display: block;
-    position: absolute;
+    position: fixed;
   }
   .mobile-menu__button.is-open .icon-menu {
     display: none;
